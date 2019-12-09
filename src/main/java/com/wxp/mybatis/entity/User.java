@@ -10,14 +10,9 @@ public class User {
 
     @TableId(type = IdType.ASSIGN_ID)
     private String id;
-
-    //@TableField("name_")
     private String name;
-
-    //@TableField("age_")
     private Integer age;
-
-    //@TableField("email_")
     private String email;
+    private String password;
 }
 

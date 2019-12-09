@@ -11,6 +11,7 @@ import com.wxp.mapper.UserMapper;
 import com.wxp.mybatis.ResponseResultBody;
 import com.wxp.mybatis.Result;
 import com.wxp.mybatis.entity.User;
+import com.wxp.service.serviceImpl.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +35,9 @@ public class IndexController {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private UserServiceImpl userService;
+
     static {
         INFO = new HashMap<>();
         INFO.put("name", "galaxy");
@@ -47,7 +51,7 @@ public class IndexController {
 
     @GetMapping("/hello1")
     public Map<String, Object> hello1() {
-        int m=1/0;
+        int m = 1 / 0;
         return INFO;
     }
 
@@ -85,7 +89,10 @@ public class IndexController {
     }
 
     @GetMapping("/hello3")
-    public String hello3() {
+    public String hello3(HttpServletRequest request) {
+        QueryWrapper queryWrapper = WrapperContext.buildWrapperFromHttpRequest(request);
+        IPage<User> userPage = WrapperContext.buildPage(request);
+        userPage = userService.page(userPage, queryWrapper);
         return "hello World";
     }
 
@@ -104,12 +111,13 @@ public class IndexController {
         userPage = userMapper.selectPage(userPage, queryWrapper);
         return userMapper.selectList(queryWrapper);
     }
+
     @RequestMapping("/query1")
     public IPage query1(String name, HttpServletRequest request, HttpServletResponse response) {
         QueryWrapper queryWrapper = WrapperContext.buildWrapperFromHttpRequest(request);
         Map<String, Object> stringObjectMap = WrapperContext.buildMapWithPrefix(request);
-        stringObjectMap.forEach((x,y)->log.info("key:[{}] ,value:[{}]",x,y));
+        stringObjectMap.forEach((x, y) -> log.info("key:[{}] ,value:[{}]", x, y));
         IPage<User> userPage = WrapperContext.buildPage(request);
-        return  userMapper.selectPage(userPage, queryWrapper);
+        return userMapper.selectPage(userPage, queryWrapper);
     }
 }
