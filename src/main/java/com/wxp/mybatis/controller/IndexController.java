@@ -47,7 +47,7 @@ public class IndexController {
 
     @GetMapping("/hello1")
     public Map<String, Object> hello1() {
-        //int m=1/0;
+        int m=1/0;
         return INFO;
     }
 
