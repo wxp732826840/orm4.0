@@ -1,4 +1,4 @@
-package com.wxp.mybatis.controller;
+package com.wxp.bas.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -7,11 +7,10 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wxp.WrapperContext;
-import com.wxp.mapper.UserMapper;
-import com.wxp.mybatis.ResponseResultBody;
+import com.wxp.bas.entity.User;
+import com.wxp.bas.mapper.UserMapper;
+import com.wxp.bas.service.impl.UserServiceImpl;
 import com.wxp.mybatis.Result;
-import com.wxp.mybatis.entity.User;
-import com.wxp.service.serviceImpl.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,11 +24,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * <p>
+ *  前端控制器
+ * </p>
+ *
+ * @author wxp
+ * @since 2019-12-10
+ */
 @RestController
-@ResponseResultBody
-@RequestMapping("/index")
+@RequestMapping("/bas/user")
 @Slf4j
-public class IndexController {
+public class UserController {
     private static final HashMap<String, Object> INFO;
 
     @Autowired
@@ -67,10 +73,10 @@ public class IndexController {
         //insertUser.setId(SnowflakeIdWorker.genetateIdStr());
         insertUser.setName("22222");
         userMapper.insert(insertUser);
-        User user = userMapper.finds(insertUser.getId());
-        List<User> list = userMapper.selectList(null);
+        //User user = userMapper.finds(insertUser.getId());
+        //List<User> list = userMapper.selectList(null);
         //list.forEach(x -> System.out.println(x.getId()));
-        System.out.println(user.getId());
+        //System.out.println(user.getId());
         System.out.println("===========分页================");
         IPage<User> userPage = new Page<>(2, 2);//参数一是当前页，参数二是每页个数
         userPage = userMapper.selectPage(userPage, null);
@@ -81,7 +87,7 @@ public class IndexController {
             System.out.println(user1);
         }*/
         IPage<User> userPage2 = new Page<>(2, 10);
-        userPage2 = userMapper.findList(userPage2);
+        //userPage2 = userMapper.findList(userPage2);
         log.info("======userPage======" + new ObjectMapper().writeValueAsString(userPage2));
 
 
@@ -120,4 +126,5 @@ public class IndexController {
         IPage<User> userPage = WrapperContext.buildPage(request);
         return userMapper.selectPage(userPage, queryWrapper);
     }
+
 }
