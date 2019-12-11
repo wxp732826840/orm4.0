@@ -1,7 +1,6 @@
-package com.wxp.mybatis;
+package com.wxp.utils.tools;
 
 
-import com.wxp.JodaTimeUtil;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;

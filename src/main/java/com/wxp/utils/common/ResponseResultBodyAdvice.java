@@ -1,4 +1,4 @@
-package com.wxp.mybatis;
+package com.wxp.utils.common;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;

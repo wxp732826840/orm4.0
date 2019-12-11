@@ -1,4 +1,4 @@
-package com.wxp;
+package com.wxp.utils.common;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.google.common.base.Splitter;

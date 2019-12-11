@@ -1,4 +1,4 @@
-package com.wxp;
+package com.wxp.utils.tools;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;

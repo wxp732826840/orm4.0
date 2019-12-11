@@ -1,4 +1,4 @@
-package com.wxp.mybatis;
+package com.wxp.utils.common;
 
 import lombok.Getter;
 import lombok.ToString;

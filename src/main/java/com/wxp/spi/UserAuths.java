@@ -1,4 +1,4 @@
-package com.wxp.mybatis.entity;
+package com.wxp.spi;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

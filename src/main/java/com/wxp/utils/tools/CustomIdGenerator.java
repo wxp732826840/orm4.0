@@ -1,4 +1,4 @@
-package com.wxp.mybatis;
+package com.wxp.utils.tools;
 
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import lombok.extern.slf4j.Slf4j;
