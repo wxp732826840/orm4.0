@@ -7,6 +7,7 @@ import lombok.ToString;
 @ToString
 public class Result<T> {
     public static Integer SUCCESS = 0;
+    public static Integer FAILTURE = 250;
     /**
      * 业务错误码
      */
