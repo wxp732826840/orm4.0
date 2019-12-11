@@ -1,6 +1,7 @@
-package com.wxp.utils.tools;
+package com.wxp.utils.common;
 
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
+import com.wxp.utils.tools.SnowflakeIdWorker;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
