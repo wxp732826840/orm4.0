@@ -7,14 +7,14 @@ import org.junit.Test;
 public class JwtUtilTest {
 
 
-    @Test
+   /* @Test
     public void  test(){
         User user = new User();
         user.setId("20190905111111");
         user.setUsername("wxp");
         user.setPassword("1111111");
         log.info(JwtUtil.createJWT(user));
-    }
+    }*/
 
     @Test
     public void test1(){

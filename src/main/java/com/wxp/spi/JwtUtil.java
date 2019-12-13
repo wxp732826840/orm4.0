@@ -1,5 +1,6 @@
 package com.wxp.spi;
 
+import com.wxp.bas.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
@@ -42,14 +43,14 @@ public class JwtUtil {
         //创建payload的私有声明（根据特定的业务需要添加，如果要拿这个做验证，一般是需要和jwt的接收方提前沟通好验证方式的）
         Map<String, Object> claims = new HashMap<String, Object>();
         claims.put("id", user.getId());
-        claims.put("username", user.getUsername());
-        claims.put("password", user.getPassword());
+        //claims.put("username", user.getUsername());
+        //claims.put("password", user.getPassword());
 
         //生成签名的时候使用的秘钥secret,这个方法本地封装了的，一般可以从本地配置文件中读取，切记这个秘钥不能外露哦。它就是你服务端的私钥，在任何场景都不应该流露出去。一旦客户端得知这个secret, 那就意味着客户端是可以自我签发jwt了。
         //String key = user.getPassword();
 
         //生成签发人
-        String subject = user.getUsername();
+        //String subject = user.getUsername();
 
 
 
@@ -63,7 +64,7 @@ public class JwtUtil {
                 //iat: jwt的签发时间
                 .setIssuedAt(now)
                 //代表这个JWT的主体，即它的所有人，这个是一个json格式的字符串，可以存放什么userid，roldid之类的，作为什么用户的唯一标志。
-                .setSubject(subject)
+                //.setSubject(subject)
                 //设置签名使用的签名算法和签名使用的秘钥
                 .signWith(signatureAlgorithm, TOKEN_SECRET);
         if (EXPIRE_TIME >= 0) {
@@ -79,7 +80,7 @@ public class JwtUtil {
     /**
      * Token的解密
      * @param token 加密后的token
-     * @param user  用户的对象
+     * @param //user  用户的对象
      * @return
      */
     public static Claims parseJWT(String token) {
@@ -105,18 +106,18 @@ public class JwtUtil {
      */
     public static Boolean isVerify(String token, User user) {
         //签名秘钥，和生成的签名的秘钥一模一样
-        String key = user.getPassword();
+        //String key = user.getPassword();
 
         //得到DefaultJwtParser
         Claims claims = Jwts.parser()
                 //设置签名的秘钥
-                .setSigningKey(key)
+                //.setSigningKey(key)
                 //设置需要解析的jwt
                 .parseClaimsJws(token).getBody();
 
-        if (claims.get("password").equals(user.getPassword())) {
-            return true;
-        }
+       // if (claims.get("password").equals(user.getPassword())) {
+           // return true;
+        //}
 
         return false;
     }
