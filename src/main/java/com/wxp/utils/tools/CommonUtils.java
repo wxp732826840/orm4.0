@@ -44,17 +44,17 @@ public class CommonUtils {
      **/
     public static String readReqXml(HttpServletRequest request) {
         String inputLine;
-        String notityXml = "";
+        StringBuffer notityXml = new StringBuffer();
         try {
             while ((inputLine = request.getReader().readLine()) != null) {
-                notityXml += inputLine;
+                notityXml.append(inputLine);
             }
             request.getReader().close();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-        return notityXml;
+        return notityXml.toString();
 
     }
 
@@ -68,11 +68,16 @@ public class CommonUtils {
         for (Iterator iter = requestParams.keySet().iterator(); iter.hasNext(); ) {
             String name = (String) iter.next();
             String[] values = (String[]) requestParams.get(name);
-            String valueStr = "";
+            StringBuffer stringBuffer = new StringBuffer();
+            //String valueStr = "";
             for (int i = 0; i < values.length; i++) {
-                valueStr = (i == values.length - 1) ? valueStr + values[i] : valueStr + values[i] + ",";
+                if (i == (values.length - 1)) {
+                    stringBuffer.append(values[i]);
+                } else {
+                    stringBuffer.append(values[i] + ",");
+                }
             }
-            params.put(name, valueStr);
+            params.put(name, stringBuffer.toString());
         }
         return params;
     }
@@ -80,13 +85,14 @@ public class CommonUtils {
 
     /**
      * 利用正则表达式判断字符串是否是数字
+     *
      * @param str
      * @return
      */
-    public static boolean isNumeric(String str){
+    public static boolean isNumeric(String str) {
         Pattern pattern = Pattern.compile("[0-9]*");
         Matcher isNum = pattern.matcher(str);
-        if( !isNum.matches() ){
+        if (!isNum.matches()) {
             return false;
         }
         return true;
@@ -97,9 +103,9 @@ public class CommonUtils {
      * @param source
      * @param target
      */
-    public static void copy(Object source,Object target){
+    public static void copy(Object source, Object target) {
         BeanCopier beanCopier = BeanCopier.create(source.getClass(), target.getClass(), false);
-        beanCopier.copy(source,target,null);
+        beanCopier.copy(source, target, null);
     }
 
 }
