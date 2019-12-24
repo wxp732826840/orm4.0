@@ -1,4 +1,4 @@
-package com.wxp.utils.common;
+package com.wxp.utils.common.base.mybatis;
 
 import com.baomidou.mybatisplus.core.incrementer.IdentifierGenerator;
 import com.wxp.utils.tools.SnowflakeIdWorker;
