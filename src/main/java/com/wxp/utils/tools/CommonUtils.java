@@ -98,14 +98,6 @@ public class CommonUtils {
         return true;
     }
 
-    /***
-     * 这个拷贝比较快
-     * @param source
-     * @param target
-     */
-    public static void copy(Object source, Object target) {
-        BeanCopier beanCopier = BeanCopier.create(source.getClass(), target.getClass(), false);
-        beanCopier.copy(source, target, null);
-    }
+
 
 }
