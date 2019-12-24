@@ -10,18 +10,48 @@ public class CGlibMapper {
     //使用缓存提高效率
     private static final ConcurrentHashMap<String, BeanCopier> mapCaches = new ConcurrentHashMap<>();
 
+    /***
+     * 将对象转为指定类型
+     * @param source 对象
+     * @param target class
+     * @param <O>
+     * @param <T>
+     * @return
+     */
     public static <O, T> T mapper(O source, Class<T> target) {
         T instance = baseMapper(source, target);
         return instance;
     }
 
+
+    public static <O, T> T mapper(O source, T target) {
+        T instance = baseMapper(source, target);
+        return instance;
+    }
+
+    /***
+     *
+     * @param source 对象
+     * @param target  class
+     * @param action class进行的相关操作
+     * @param <O>
+     * @param <T>
+     * @return
+     */
     public static <O, T> T mapper(O source, Class<T> target, IAction<T> action) {
         T instance = baseMapper(source, target);
         action.run(instance);
         return instance;
     }
 
-    public static <O, T> T mapperObject(O source, T target) {
+
+    public static <O, T> T mapper(O source, T target, IAction<T> action) {
+        baseMapper(source, target);
+        action.run(target);
+        return target;
+    }
+
+    private static <O, T> T baseMapper(O source, T target) {
         String baseKey = generateKey(source.getClass(), target.getClass());
         BeanCopier copier;
         if (!mapCaches.containsKey(baseKey)) {
@@ -34,19 +64,6 @@ public class CGlibMapper {
         return target;
     }
 
-    public static <O, T> T mapperObject(O source, T target, IAction<T> action) {
-        String baseKey = generateKey(source.getClass(), target.getClass());
-        BeanCopier copier;
-        if (!mapCaches.containsKey(baseKey)) {
-            copier = BeanCopier.create(source.getClass(), target.getClass(), false);
-            mapCaches.put(baseKey, copier);
-        } else {
-            copier = mapCaches.get(baseKey);
-        }
-        copier.copy(source, target, null);
-        action.run(target);
-        return target;
-    }
 
     private static <O, T> T baseMapper(O source, Class<T> target) {
         String baseKey = generateKey(source.getClass(), target);
