@@ -1,5 +1,7 @@
-package com.wxp.utils.common;
+package com.wxp.utils.common.base;
 
+import com.wxp.utils.common.base.ResponseResultBody;
+import com.wxp.utils.common.base.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.beans.TypeMismatchException;

@@ -1,4 +1,4 @@
-package com.wxp.utils.common;
+package com.wxp.utils.common.base;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.wxp.utils.tools;
+package com.wxp.utils.tools.copy;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cglib.beans.BeanCopier;

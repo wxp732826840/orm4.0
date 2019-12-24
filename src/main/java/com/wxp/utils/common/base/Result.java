@@ -1,4 +1,4 @@
-package com.wxp.utils.common;
+package com.wxp.utils.common.base;
 
 import lombok.Getter;
 import lombok.ToString;
