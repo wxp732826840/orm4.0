@@ -1,7 +1,7 @@
 package com.wxp;
 
-import com.wxp.equator.EquatorStrategy;
-import com.wxp.equator.FieldInfo;
+import com.wxp.utils.equator.EquatorStrategy;
+import com.wxp.utils.equator.FieldInfo;
 
 import java.math.BigDecimal;
 

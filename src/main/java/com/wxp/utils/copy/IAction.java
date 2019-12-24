@@ -1,4 +1,4 @@
-package com.wxp.utils.tools.copy;
+package com.wxp.utils.copy;
 
 @FunctionalInterface
 public interface IAction<T>  {

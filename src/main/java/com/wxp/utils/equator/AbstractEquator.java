@@ -1,4 +1,4 @@
-package com.wxp.equator;
+package com.wxp.utils.equator;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package com.wxp.utils.common.base;
+package com.wxp.utils.common.base.response;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;

@@ -1,4 +1,4 @@
-package com.wxp.utils.common.base;
+package com.wxp.utils.common.base.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wxp.utils.tools.CommonUtils;

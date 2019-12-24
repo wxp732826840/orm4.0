@@ -1,4 +1,4 @@
-package com.wxp.utils.tools.copy;
+package com.wxp.utils.copy;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cglib.beans.BeanCopier;
@@ -78,7 +78,7 @@ public class CGlibMapper {
         try {
             instance = target.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
-            log.error("mapper 创建对象异常" + e.getMessage());
+            log.error("mapper 创建对象异常 {}",  e.toString());
         }
         copier.copy(source, instance, null);
         return instance;

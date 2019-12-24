@@ -1,8 +1,8 @@
 package com.wxp;
 
 import com.wxp.bas.entity.User;
-import com.wxp.equator.FieldBaseEquator;
-import com.wxp.equator.FieldInfo;
+import com.wxp.utils.equator.FieldBaseEquator;
+import com.wxp.utils.equator.FieldInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 

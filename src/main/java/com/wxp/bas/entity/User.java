@@ -2,7 +2,7 @@ package com.wxp.bas.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.wxp.equator.FieldNameInfo;
+import com.wxp.utils.equator.FieldNameInfo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

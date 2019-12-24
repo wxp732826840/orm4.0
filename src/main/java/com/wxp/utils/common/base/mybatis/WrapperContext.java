@@ -1,4 +1,4 @@
-package com.wxp.utils.common.base;
+package com.wxp.utils.common.base.mybatis;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;

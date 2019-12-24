@@ -1,4 +1,4 @@
-package com.wxp.utils.common.base;
+package com.wxp.utils.common.base.response;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 
