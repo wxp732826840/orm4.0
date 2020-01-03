@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.wxp.utils.equator.FieldNameInfo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -20,9 +21,9 @@ import java.util.Date;
  * @since 2019-12-10
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-@TableName("bas_user")
+//@EqualsAndHashCode(callSuper = false)
+//@Accessors(chain = true)
+//@TableName("bas_user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

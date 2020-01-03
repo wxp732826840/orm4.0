@@ -3,7 +3,7 @@ package com.wxp.mybatis;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.wxp.SpiStartApplication;
+import com.wxp.OrmStartApplication;
 import com.wxp.bas.entity.User;
 import com.wxp.bas.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SpiStartApplication.class)
+@SpringBootTest(classes = OrmStartApplication.class)
 @Slf4j
 public class MybatisPlusTest {
 

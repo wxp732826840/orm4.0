@@ -1,17 +1,17 @@
 package com.wxp;
 
+import org.minbox.framework.logging.spring.context.annotation.client.EnableLoggingClient;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableTransactionManagement
 @MapperScan("com.wxp.**.mapper")
-public class SpiStartApplication {
+@EnableLoggingClient
+public class OrmStartApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpiStartApplication.class, args);
+        SpringApplication.run(OrmStartApplication.class, args);
     }
 
 }
