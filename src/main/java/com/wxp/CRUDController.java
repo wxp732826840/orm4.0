@@ -1,10 +1,8 @@
 package com.wxp;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.wxp.bas.entity.User;
 import com.wxp.utils.common.base.mybatis.WrapperContext;
 import com.wxp.utils.common.base.response.Result;
 import org.springframework.beans.factory.annotation.Autowired;
