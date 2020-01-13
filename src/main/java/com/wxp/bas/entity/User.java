@@ -38,11 +38,5 @@ public class User implements Serializable {
     @FieldNameInfo("邮箱")
     private String email;
 
-    private BigDecimal mm;
-
-    private BigDecimal nn;
-
-    private Date aa;
-
 
 }

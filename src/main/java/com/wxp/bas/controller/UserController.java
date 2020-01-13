@@ -2,6 +2,8 @@ package com.wxp.bas.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.wxp.CRUDController;
+import com.wxp.bas.mapper.UserMapper;
 import com.wxp.utils.common.base.mybatis.WrapperContext;
 import com.wxp.bas.entity.User;
 import com.wxp.bas.service.IUserService;
@@ -25,39 +27,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/bas/user")
 @Slf4j
-public class UserController {
+public class UserController extends CRUDController<User> {
 
     @Autowired
     private IUserService userService;
 
-
-    @RequestMapping(value = "/query", method = RequestMethod.POST)
-    public IPage query(HttpServletRequest request) {
-        QueryWrapper queryWrapper = WrapperContext.buildWrapperFromHttpRequest(request);
-        IPage iPage = WrapperContext.buildPage(request);
-        userService.page(iPage, queryWrapper);
-        return iPage;
-    }
-
-    @RequestMapping(value = "/view/{id}")
-    public User view(@PathVariable String id) {
-        User user = userService.getById(id);
-        return user;
-    }
-
-    @RequestMapping(value = "/edit/{id}")
-    public User edit(@PathVariable String id) {
-        User user = userService.getById(id);
-        return user;
-    }
-
-    @RequestMapping(value = "/save")
-    public Result edit(User user) {
-        if (userService.save(user)) {
-            Result.success(user);
-        } else {
-            Result.failure(Result.FAILTURE, "保存错误");
-        }
-        return Result.success(user);
-    }
 }
