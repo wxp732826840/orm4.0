@@ -1,5 +1,14 @@
 package ${package.Controller};
 
+
+import com.wxp.CRUDController;
+import com.wxp.bas.entity.${entity};
+import com.wxp.bas.service.I${entity}Service;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+<#--
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.wxp.utils.common.base.mybatis.WrapperContext;
@@ -11,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;-->
 <#if restControllerStyle>
 import org.springframework.web.bind.annotation.RestController;
 <#else>
