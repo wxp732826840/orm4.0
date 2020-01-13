@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class CRUDController<T> {
+public abstract class CRUDController<T> {
 
     @Autowired
     private IService<T> iService;
