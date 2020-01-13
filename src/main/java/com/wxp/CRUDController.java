@@ -20,18 +20,17 @@ public class CRUDController<T> {
     private IService<T> iService;
 
 
-
     @RequestMapping(value = "/query", method = RequestMethod.POST)
     public IPage query(HttpServletRequest request) {
         QueryWrapper queryWrapper = WrapperContext.buildWrapperFromHttpRequest(request);
         IPage iPage = WrapperContext.buildPage(request);
-        iService.page(iPage,queryWrapper);
+        iService.page(iPage, queryWrapper);
         return iPage;
     }
 
     @RequestMapping(value = "/get/{id}")
     public <T> T view(@PathVariable String id) {
-        return (T)iService.getById(id);
+        return (T) iService.getById(id);
     }
 
 

@@ -47,7 +47,7 @@ public class ${table.controllerName} {
 
     @Autowired
     private I${entity}Service ${table.entityPath}Service;
-
+    <#--
 
     @RequestMapping(value = "/query", method = RequestMethod.POST)
     public IPage query(HttpServletRequest request) {
@@ -77,6 +77,6 @@ public class ${table.controllerName} {
             Result.failure(Result.FAILTURE, "保存错误");
         }
         return Result.success(${table.entityPath});
-    }
+    }-->
 }
 </#if>
