@@ -1,6 +1,7 @@
 package com.wxp.bas.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.wxp.utils.equator.FieldNameInfo;
 import lombok.Data;
 
@@ -17,7 +18,8 @@ import java.io.Serializable;
 @Data
 //@EqualsAndHashCode(callSuper = false)
 //@Accessors(chain = true)
-//@TableName("bas_user")
+
+@TableName("bas_user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

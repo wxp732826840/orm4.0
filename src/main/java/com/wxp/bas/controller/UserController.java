@@ -1,10 +1,12 @@
 package com.wxp.bas.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.wxp.CRUDController;
 import com.wxp.bas.entity.User;
 import com.wxp.bas.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +25,12 @@ public class UserController extends CRUDController<User> {
 
     @Autowired
     private IUserService userService;
+
+
+    @GetMapping(value = "/hello")
+    @SentinelResource("hello")
+    public String hello() {
+        return "Hello Sentinel";
+    }
 
 }
